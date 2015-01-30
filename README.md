@@ -13,7 +13,7 @@ Add the following dependency to your **pom.xml** file:
 </dependency>
 ```
 
-To use a auto-configuration class, you must annotate your field annotation **Autowired** and add the configuration of your properties file. Here's an example:
+To use an auto-configuration class, you must annotate your field annotation **Autowired** and add the configuration of your properties file. Here's an example:
 
 In the file that contains an instance of the class:
 ```java
