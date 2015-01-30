@@ -37,7 +37,21 @@ twilio:
 ```
 
 ### Jongo auto-configuration
-TODO
+In the file that contains an instance of the class:
+```java
+class HomeController {
+    @Autowired
+    private Jongo jongo;
+}
+```
+
+Configuration of the Jongo auto-configuration in the application.yml file:
+```yml
+spring:
+  data:
+     mongodb:
+        database: MY_DATABASE_NAME
+```
 
 ## Copyright and license
 
