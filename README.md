@@ -13,7 +13,13 @@ Add the following dependency to your **pom.xml** file:
 </dependency>
 ```
 
-To use an auto-configuration class, you must annotate your field annotation **Autowired** and add the configuration of your properties file. Here's an example:
+The following auto-configurations are included so far:
+* [Jongo](http://jongo.org/)
+* [Twilio](https://www.twilio.com)
+
+### Twilio auto-configuration
+
+To use the Twilio auto-configuration, you must annotate your field with the **Autowired** annotation and add the configuration of your properties file. Here's an example:
 
 In the file that contains an instance of the class:
 ```java
@@ -29,6 +35,9 @@ twilio:
   accountSID: MY_ACCOUNT_SID
   authToken: MY_AUTHENTICATION_TOKEN
 ```
+
+### Jongo auto-configuration
+TODO
 
 ## Copyright and license
 
