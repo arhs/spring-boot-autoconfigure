@@ -59,18 +59,21 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>org.jongo</groupId>
             <artifactId>jongo</artifactId>
             <version>${jongo.version}</version>
+            <optional>true</optional>
         </dependency>
 
         <dependency>
             <groupId>com.twilio.sdk</groupId>
             <artifactId>twilio-java-sdk</artifactId>
             <version>${twilio.version}</version>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 
