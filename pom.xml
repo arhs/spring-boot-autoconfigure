@@ -15,7 +15,7 @@
 
     <groupId>com.arhs.spring.boot.autoconfigure</groupId>
     <artifactId>spring-boot-autoconfigure</artifactId>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 
     <organization>
         <name>ARHS Developments SA</name>
