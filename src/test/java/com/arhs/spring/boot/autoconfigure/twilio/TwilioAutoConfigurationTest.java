@@ -26,7 +26,6 @@ package com.arhs.spring.boot.autoconfigure.twilio;
 import com.arhs.spring.boot.autoconfigure.UnitTestBase;
 import com.twilio.sdk.TwilioRestClient;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -90,6 +89,8 @@ public class TwilioAutoConfigurationTest extends UnitTestBase {
     public void testProperties() {
         // Loads the application context.
         load();
+
+        assertBeanExists(TwilioRestClient.class);
 
         final TwilioRestClient twilioRestClient = context.getBean(TwilioRestClient.class);
         Assert.assertNotNull("Any instance of the class has been created TwilioRestClient", twilioRestClient);

@@ -23,6 +23,7 @@ package com.arhs.spring.boot.autoconfigure;
  * THE SOFTWARE.
  */
 
+import junit.framework.Assert;
 import org.junit.After;
 import org.springframework.boot.test.EnvironmentTestUtils;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -42,6 +43,15 @@ public abstract class UnitTestBase {
     //<editor-fold desc="Methods section.">
 
     //<editor-fold desc="Protected methods section.">
+
+    /**
+     * Asserts that the bean exists in the current context.
+     *
+     * @param bean The name of bean.
+     */
+    protected void assertBeanExists(Class<?> bean) {
+        Assert.assertNotNull("The bean does not exist in the context.", context.containsBean(bean.getName()));
+    }
 
     /**
      * Loads the configuration application context.

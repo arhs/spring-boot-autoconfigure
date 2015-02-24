@@ -57,39 +57,21 @@ public class TwilioProperties {
     //<editor-fold desc="Properties section.">
 
     /**
-     * Sets the account SID.
-     *
-     * @param accountSID The account SID.
-     */
-    public void setAccountSID(String accountSID) {
-        this.accountSID = accountSID;
-    }
-
-    /**
-     * Sets the authentication token.
-     *
-     * @param authToken The authentication token.
-     */
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
-    }
-
-    /**
-     * Sets the end point.
-     *
-     * @param endPoint The end point.
-     */
-    public void setEndPoint(String endPoint) {
-        this.endPoint = endPoint;
-    }
-
-    /**
      * Gets the account SID.
      *
      * @return The account SID.
      */
     public String getAccountSID() {
         return accountSID;
+    }
+
+    /**
+     * Sets the account SID.
+     *
+     * @param accountSID The account SID.
+     */
+    public void setAccountSID(String accountSID) {
+        this.accountSID = accountSID;
     }
 
     /**
@@ -102,12 +84,30 @@ public class TwilioProperties {
     }
 
     /**
+     * Sets the authentication token.
+     *
+     * @param authToken The authentication token.
+     */
+    public void setAuthToken(String authToken) {
+        this.authToken = authToken;
+    }
+
+    /**
      * Gets the end point.
      *
      * @return The end point.
      */
     public String getEndPoint() {
         return endPoint;
+    }
+
+    /**
+     * Sets the end point.
+     *
+     * @param endPoint The end point.
+     */
+    public void setEndPoint(String endPoint) {
+        this.endPoint = endPoint;
     }
 
     //</editor-fold>

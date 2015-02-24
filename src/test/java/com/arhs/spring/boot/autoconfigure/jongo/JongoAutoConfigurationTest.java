@@ -69,6 +69,8 @@ public class JongoAutoConfigurationTest extends UnitTestBase {
         // Loads the application context.
         load();
 
+        assertBeanExists(Jongo.class);
+
         final Jongo jongo = context.getBean(Jongo.class);
         Assert.assertNotNull("Any instance of the class has been created Jongo", jongo);
         Assert.assertEquals("The end point has not been defined when creating the object.", DATABASE_NAME, jongo.getDatabase().getName());
