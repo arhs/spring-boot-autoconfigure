@@ -38,24 +38,36 @@ import org.junit.Test;
  */
 public class TwilioAutoConfigurationTest extends UnitTestBase {
 
+    //<editor-fold desc="Constants section.">
+
+    /**
+     * Account SID.
+     */
+    private final static String ACCOUNT_SID = "AC123456789azertyuiopqsdfghjklmwxc";
+
+    /**
+     * Authentication token.
+     */
+    private final static String AUTH_TOKEN = "abcdefghijklmnopqrstuvwxyz012345";
+
+    /**
+     * Endpoint.
+     */
+    private final static String ENDPOINT = "endpoint";
+
+    //</editor-fold>
+
     //<editor-fold desc="Methods section.">
 
     /**
      * Executes before the execution of tests.
      */
-    @Before
     public void load() {
-        // Properties value.
-        final String accountSID = "AC123456789azertyuiopqsdfghjklmwxc";
-        final String authToken = "abcdefghijklmnopqrstuvwxyz012345";
-        final String endPoint = "endpoint";
-
-        // Loads the application context.
         context = load(
                 new Class<?>[]{TwilioAutoConfiguration.class},
-                "twilio.accountSID:" + accountSID,
-                "twilio.authToken:" + authToken,
-                "twilio.endPoint:" + endPoint
+                "twilio.accountSID:" + ACCOUNT_SID,
+                "twilio.authToken:" + AUTH_TOKEN,
+                "twilio.endPoint:" + ENDPOINT
         );
     }
 
@@ -64,6 +76,9 @@ public class TwilioAutoConfigurationTest extends UnitTestBase {
      */
     @Test
     public void testInstance() {
+        // Loads the application context.
+        load();
+
         final TwilioRestClient twilioRestClient = context.getBean(TwilioRestClient.class);
         Assert.assertNotNull("Any instance of the class has been created TwilioRestClient", twilioRestClient);
     }
@@ -73,10 +88,14 @@ public class TwilioAutoConfigurationTest extends UnitTestBase {
      */
     @Test
     public void testProperties() {
+        // Loads the application context.
+        load();
+
         final TwilioRestClient twilioRestClient = context.getBean(TwilioRestClient.class);
         Assert.assertNotNull("Any instance of the class has been created TwilioRestClient", twilioRestClient);
-        Assert.assertNotEquals("The Account SID has not been defined when creating the object.", "", twilioRestClient.getAccountSid());
-        Assert.assertNotEquals("The end point has not been defined when creating the object.", "", twilioRestClient.getEndpoint());
+        Assert.assertEquals("The account security identifier has not been defined when creating the object.", ACCOUNT_SID, twilioRestClient.getAccountSid());
+        Assert.assertEquals("The authentication token has not been defined when creating the object.", AUTH_TOKEN, twilioRestClient.getAccount().getAuthToken());
+        Assert.assertEquals("The end point has not been defined when creating the object.", ENDPOINT, twilioRestClient.getEndpoint());
     }
 
     //</editor-fold>

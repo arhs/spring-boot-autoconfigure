@@ -39,20 +39,25 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
  */
 public class JongoAutoConfigurationTest extends UnitTestBase {
 
+    //<editor-fold desc="Constants section.">
+
+    /**
+     * Database name.
+     */
+    private final static String DATABASE_NAME = "test";
+
+    //</editor-fold>
+
     //<editor-fold desc="Methods section.">
 
     /**
      * Executes before the execution of tests.
      */
-    @Before
     public void load() {
-        // Properties value.
-        final String database = "test";
-
         // Loads the application context.
         context = load(
             new Class<?>[]{MongoAutoConfiguration.class, JongoAutoConfiguration.class},
-            "spring.data.mongodb.database:" + database
+            "spring.data.mongodb.database:" + DATABASE_NAME
         );
     }
 
@@ -61,8 +66,12 @@ public class JongoAutoConfigurationTest extends UnitTestBase {
      */
     @Test
     public void testJongo() {
+        // Loads the application context.
+        load();
+
         final Jongo jongo = context.getBean(Jongo.class);
         Assert.assertNotNull("Any instance of the class has been created Jongo", jongo);
+        Assert.assertEquals("The end point has not been defined when creating the object.", DATABASE_NAME, jongo.getDatabase().getName());
     }
 
     //</editor-fold>
