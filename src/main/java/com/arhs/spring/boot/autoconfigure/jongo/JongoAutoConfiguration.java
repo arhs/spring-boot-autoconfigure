@@ -24,8 +24,11 @@ package com.arhs.spring.boot.autoconfigure.jongo;
  */
 
 import com.mongodb.DB;
+import com.mongodb.Mongo;
 import org.jongo.Jongo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -38,7 +41,23 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConditionalOnClass({Jongo.class})
-public class JongoAutoConfiguration extends AbstractMongoAutoConfigure {
+public class JongoAutoConfiguration {
+
+    //<editor-fold desc="Fields section.">
+
+    /**
+     * Mongo
+     */
+    @Autowired
+    protected Mongo mongo;
+
+    /**
+     * Jongo properties.
+     */
+    @Autowired
+    protected MongoProperties properties;
+
+    //</editor-fold>
 
     //<editor-fold desc="Methods section.">
 
